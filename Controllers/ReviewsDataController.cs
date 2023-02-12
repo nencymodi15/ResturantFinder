@@ -16,16 +16,44 @@ namespace ResturantFinder.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/ReviewsData
-        public IQueryable<Review> GetReviews()
+        // GET: api/ReviewsData/ListReviews
+        [HttpGet]
+        public IEnumerable<ReviewDto> ListReviews()
         {
-            return db.Reviews;
+            List<Review> Review = db.Reviews.ToList();
+            List<ReviewDto> ReviewDtos = new List<ReviewDto>();
+
+            Review.ForEach(a => ReviewDtos.Add(new ReviewDto()
+            {
+                ReviewId = a.ReviewId,
+                ResturantName = a.ResturantName,
+                RatingFood = a.RatingFood,
+                RatingAsthetics = a.RatingAsthetics,
+                RatingFeeling = a.RatingFeeling,
+                ReviewsDes = a.ReviewsDes,
+                UserId = a.UserTable.UserId,
+                Id = a.Restaurant.Id
+            }));
+            return ReviewDtos;
         }
 
-        // GET: api/ReviewsData/5
+        // GET: api/ReviewsData/FindReview/5
         [ResponseType(typeof(Review))]
-        public IHttpActionResult GetReview(int id)
+        [HttpGet]
+        public IHttpActionResult FindReview(int id)
         {
+            Review Review = db.Reviews.Find(id);
+            ReviewDto ReviewDto = new ReviewDto()
+            {
+                ReviewId = Review.ReviewId,
+                ResturantName = Review.ResturantName,
+                RatingFood = Review.RatingFood,
+                RatingAsthetics = Review.RatingAsthetics,
+                RatingFeeling = Review.RatingFeeling,
+                ReviewsDes = Review.ReviewsDes,
+                UserId = Review.UserId,
+                Id = Review.Id,
+            };
             Review review = db.Reviews.Find(id);
             if (review == null)
             {
@@ -35,9 +63,10 @@ namespace ResturantFinder.Controllers
             return Ok(review);
         }
 
-        // PUT: api/ReviewsData/5
+        // PUT: api/ReviewsData/UpdateReview/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutReview(int id, Review review)
+        [HttpPost]
+        public IHttpActionResult UpdateReview(int id, Review review)
         {
             if (!ModelState.IsValid)
             {
@@ -70,9 +99,10 @@ namespace ResturantFinder.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ReviewsData
+        // POST: api/ReviewsData/AddReview
         [ResponseType(typeof(Review))]
-        public IHttpActionResult PostReview(Review review)
+        [HttpPost]
+        public IHttpActionResult AddReview(Review review)
         {
             if (!ModelState.IsValid)
             {
@@ -85,8 +115,9 @@ namespace ResturantFinder.Controllers
             return CreatedAtRoute("DefaultApi", new { id = review.ReviewId }, review);
         }
 
-        // DELETE: api/ReviewsData/5
+        // DELETE: api/ReviewsData/DeleteReview/5
         [ResponseType(typeof(Review))]
+        [HttpPost]
         public IHttpActionResult DeleteReview(int id)
         {
             Review review = db.Reviews.Find(id);
@@ -98,7 +129,7 @@ namespace ResturantFinder.Controllers
             db.Reviews.Remove(review);
             db.SaveChanges();
 
-            return Ok(review);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)

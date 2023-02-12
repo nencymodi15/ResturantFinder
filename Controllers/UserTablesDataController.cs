@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Microsoft.AspNet.Identity;
 using ResturantFinder.Models;
 
 namespace ResturantFinder.Controllers
@@ -16,28 +17,54 @@ namespace ResturantFinder.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/UserTablesData
-        public IQueryable<UserTable> GetUsers()
+        // GET: api/UserTablesData/ListUsers
+        [HttpGet]
+        public IEnumerable<UserTableDto> ListUsers()
         {
-            return db.Users;
+            List<UserTable> UserTable = db.Users.ToList();
+            List<UserTableDto> userTableDto = new List<UserTableDto>();
+
+            UserTable.ForEach(a => userTableDto.Add(new UserTableDto()
+            {
+                UserId = a.UserId,
+                UserName = a.UserName,
+                EmailId = a.EmailId,
+                Nationality = a.Nationality,
+                Type = a.Type,
+                Gender = a.Gender
+            }));
+            return userTableDto;
         }
 
-        // GET: api/UserTablesData/5
+        // GET: api/UserTablesData/FindUserTable/5
         [ResponseType(typeof(UserTable))]
-        public IHttpActionResult GetUserTable(int id)
+        [HttpGet]
+        public IHttpActionResult FindUserTable(int id)
         {
+            UserTable UserTable = db.Users.Find(id);
+            UserTableDto UserTableDto = new UserTableDto()
+            {
+                UserId = UserTable.UserId,
+                UserName = UserTable.UserName,
+                EmailId = UserTable.EmailId,
+                Nationality = UserTable.Nationality,
+                Type = UserTable.Type,
+                Gender = UserTable.Gender
+
+            };
             UserTable userTable = db.Users.Find(id);
             if (userTable == null)
             {
                 return NotFound();
             }
 
-            return Ok(userTable);
+            return Ok(UserTableDto);
         }
 
-        // PUT: api/UserTablesData/5
+        // POST: api/UserTablesData/UpdateUserTable/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUserTable(int id, UserTable userTable)
+        [HttpPost]
+        public IHttpActionResult UpdateUserTable(int id, UserTable userTable)
         {
             if (!ModelState.IsValid)
             {
@@ -70,9 +97,10 @@ namespace ResturantFinder.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/UserTablesData
+        // POST: api/UserTablesData/AddUserTable
         [ResponseType(typeof(UserTable))]
-        public IHttpActionResult PostUserTable(UserTable userTable)
+        [HttpPost]
+        public IHttpActionResult AddUserTable(UserTable userTable)
         {
             if (!ModelState.IsValid)
             {
@@ -85,8 +113,9 @@ namespace ResturantFinder.Controllers
             return CreatedAtRoute("DefaultApi", new { id = userTable.UserId }, userTable);
         }
 
-        // DELETE: api/UserTablesData/5
+        // Post: api/UserTablesData/DeleteUserTable/5
         [ResponseType(typeof(UserTable))]
+        [HttpPost]
         public IHttpActionResult DeleteUserTable(int id)
         {
             UserTable userTable = db.Users.Find(id);
@@ -98,7 +127,7 @@ namespace ResturantFinder.Controllers
             db.Users.Remove(userTable);
             db.SaveChanges();
 
-            return Ok(userTable);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)

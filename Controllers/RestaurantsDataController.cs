@@ -48,8 +48,8 @@ namespace ResturantFinder.Controllers
                 Id = restaurant.Id,
                 Name = restaurant.Name,
                 EmailId = restaurant.EmailId,
-                FoodNationality = restaurant.Adress,
-                Adress = restaurant.FoodNationality
+                FoodNationality = restaurant.FoodNationality,
+                Adress = restaurant.Adress
 
             };
             if (restaurant == null)

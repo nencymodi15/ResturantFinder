@@ -218,6 +218,14 @@
     <Compile Include="Migrations\202302122027108_updatingResturant.designer.cs">
       <DependentUpon>202302122027108_updatingResturant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302122240570_updatesinUserTable.cs" />
+    <Compile Include="Migrations\202302122240570_updatesinUserTable.designer.cs">
+      <DependentUpon>202302122240570_updatesinUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302122323460_updatingrows.cs" />
+    <Compile Include="Migrations\202302122323460_updatingrows.designer.cs">
+      <DependentUpon>202302122323460_updatingrows.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -240,6 +248,8 @@
     <None Include="JasonData\Restaurant.json" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="JasonData\UserTable.json" />
+    <Content Include="JasonData\Review.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -323,6 +333,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302122027108_updatingResturant.resx">
       <DependentUpon>202302122027108_updatingResturant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302122240570_updatesinUserTable.resx">
+      <DependentUpon>202302122240570_updatesinUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302122323460_updatingrows.resx">
+      <DependentUpon>202302122323460_updatingrows.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

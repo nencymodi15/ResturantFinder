@@ -19,7 +19,7 @@ namespace ResturantFinder.Models
 
         public int RatingFeeling { get; set; }
 
-        public int ReviewsData { get; set; }
+        public string ReviewsDes { get; set; }
 
         //a user can write many reviws 
         //A reviw can have only one user
@@ -47,6 +47,11 @@ namespace ResturantFinder.Models
 
         public int RatingFeeling { get; set; }
 
-        public int ReviewsData { get; set; }
+        public string ReviewsDes { get; set; }
+
+        public int UserId { get; set; }
+
+        public int Id { get; set; }
+
     }
 }
