@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResturantFinder", "ResturantFinder.csproj", "{E441A438-AC05-41AF-9A22-B4DC7A11833D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E441A438-AC05-41AF-9A22-B4DC7A11833D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E441A438-AC05-41AF-9A22-B4DC7A11833D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E441A438-AC05-41AF-9A22-B4DC7A11833D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E441A438-AC05-41AF-9A22-B4DC7A11833D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F785F00-4462-44F0-8AD6-07066E95D84B}
+	EndGlobalSection
+EndGlobal
