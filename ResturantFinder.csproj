@@ -186,6 +186,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\RestaurantsDataController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\ReviewsDataController.cs" />
     <Compile Include="Controllers\UserTablesController.cs" />
     <Compile Include="Controllers\UserTablesDataController.cs" />
@@ -303,10 +304,21 @@
     <Content Include="Views\Restaurant\Error.cshtml" />
     <Content Include="Views\Restaurant\DeleteConfirm.cshtml" />
     <Content Include="Views\Restaurant\Edit.cshtml" />
+    <Content Include="Views\UserTables\UserList.cshtml" />
+    <Content Include="Views\UserTables\New.cshtml" />
+    <Content Include="Views\UserTables\Details.cshtml" />
+    <Content Include="Views\UserTables\DeleteConfirm.cshtml" />
+    <Content Include="Views\UserTables\Edit.cshtml" />
+    <Content Include="Views\UserTables\Error.cshtml" />
+    <Content Include="Views\Reviews\DeleteConfirm.cshtml" />
+    <Content Include="Views\Reviews\Details.cshtml" />
+    <Content Include="Views\Reviews\Edit.cshtml" />
+    <Content Include="Views\Reviews\Error.cshtml" />
+    <Content Include="Views\Reviews\New.cshtml" />
+    <Content Include="Views\Reviews\UserList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\UserTables\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

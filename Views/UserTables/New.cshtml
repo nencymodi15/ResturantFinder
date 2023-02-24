@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+<h2>Register User</h2>
+<form action="/UserTables/Add" method="post">
+    <div>
+        <label>User Name:</label>
+        <input type="text" name="UserName" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" name="EmailId" />
+    </div>
+    <div>
+        <label>Nationality:</label>
+        <input type="text" name="Nationality" />
+    </div>
+    <div>
+        <label>Type:</label>
+        <input type="text" name="Type" />
+    </div>
+    <div>
+        <label>Gender:</label>
+        <input type="text" name="Gender" />
+    </div>
+    <div>
+        <input type="submit" value="Add User" />
+    </div>
+</form>

@@ -1,0 +1,33 @@
+﻿@model ResturantFinder.Models.UserTableDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form action="/UserTables/Update/@Model.UserId" method="post">
+    <div>
+        <input type="hidden" name="UserId" value="@Model.UserId" />
+        <label>User Name:</label>
+        <input type="text" name="UserName" value="@Model.UserName"/>
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" name="EmailId" value="@Model.EmailId"/>
+    </div>
+    <div>
+        <label>Nationality:</label>
+        <input type="text" name="Nationality" value="@Model.Nationality"/>
+    </div>
+    <div>
+        <label>Type:</label>
+        <input type="text" name="Type" value="@Model.Type"/>
+    </div>
+    <div>
+        <label>Gender:</label>
+        <input type="text" name="Gender" value="@Model.Gender"/>
+    </div>
+    <div>
+        <input type="submit" value="UpdateYourDetails" />
+    </div>
+</form>

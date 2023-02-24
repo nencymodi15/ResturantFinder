@@ -97,6 +97,8 @@ namespace ResturantFinder.Controllers
         {
             string Url = "UpdateRestaurant/" + id;
             string jsonpayload = jss.Serialize(restaurant);
+            Debug.WriteLine("This is the ");
+            Debug.WriteLine(jsonpayload);
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
             HttpResponseMessage response = Client.PostAsync(Url, content).Result;
