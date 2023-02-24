@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ResturantFinder.Models.RestaurantDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<a href="/Restaurant/New">Add Resturant</a>
+@foreach(var resturant in Model)
+            {
+                <a href="/Restaurant/ShowResturant/@resturant.Id"><h2>@resturant.Name</h2></a>
+              }

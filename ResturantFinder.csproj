@@ -184,8 +184,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\RestaurantsDataController.cs" />
     <Compile Include="Controllers\ReviewsDataController.cs" />
+    <Compile Include="Controllers\UserTablesController.cs" />
     <Compile Include="Controllers\UserTablesDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -295,9 +297,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Restaurant\List.cshtml" />
+    <Content Include="Views\Restaurant\ShowResturant.cshtml" />
+    <Content Include="Views\Restaurant\New.cshtml" />
+    <Content Include="Views\Restaurant\Error.cshtml" />
+    <Content Include="Views\Restaurant\DeleteConfirm.cshtml" />
+    <Content Include="Views\Restaurant\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\UserTables\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,0 +1,29 @@
+﻿@model ResturantFinder.Models.RestaurantDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form action="/Restaurant/Update/@Model.Id" method="post">
+    <div>
+        <label>Resturant Name:</label>
+        <input type="text" name="Name" value="@Model.Name" />
+    </div>
+    <div>
+        <label>Resturant Email:</label>
+        <input type="text" name="EmailId" value="@Model.EmailId"/>
+    </div>
+    <div>
+        <label>Resturant Nationality:</label>
+        <input type="text" name="FoodNationality" value="@Model.FoodNationality"/>
+    </div>
+    <div>
+        <label>Resturant Adress:</label>
+        <input type="text" name="Adress" value="@Model.Adress"/>
+    </div>
+    <div>
+        <input type="submit" value="EditResturant" />
+    </div>
+</form>
+

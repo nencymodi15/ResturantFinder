@@ -1,0 +1,12 @@
+﻿@model ResturantFinder.Models.RestaurantDto
+@{
+    ViewBag.Title = "ShowResturant";
+}
+
+
+<h2>ShowResturant</h2>
+<a href="/Restaurant/list">Go Back</a>
+
+<h3>@Model.Name</h3>
+<a href="/Restaurant/DeleteConfirm//@Model.Id">Delete</a>
+<a href="/Restaurant/Edit//@Model.Id">Edit</a>

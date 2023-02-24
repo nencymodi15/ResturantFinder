@@ -1,0 +1,14 @@
+﻿@model ResturantFinder.Models.RestaurantDto
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Delete</h2>
+
+<h3>@Model.Name</h3>
+
+<form action="/Restaurant/Delete/@Model.Id" method="post">
+    <input type="submit" value="Confirm Delete" />
+</form>
+
+
