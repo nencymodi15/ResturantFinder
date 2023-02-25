@@ -1,9 +1,12 @@
-﻿@model  ResturantFinder.Models.ReviewDto
+﻿@model IEnumerable<ResturantFinder.Models.RestaurantDto>
 @{
     ViewBag.Title = "New";
 }
+<link rel="stylesheet" href="~/Content/styles.css">
+<a href="/Reviews/ReviewsList" class="button">Go back</a>
+<a href="/UserTables/UserList">Go back to UsrList</a>
 <h2>Add Review</h2>
-<form action="/Reviews/Add" method="post">
+<form action="/Reviews/Add" method="post" class="add-form">
     <div>
         <label>Resturant Name:</label>
         <select name="ResturantName">
@@ -37,13 +40,16 @@
                 </option>
             }
         </select>
-     </div>
-     <input type="hidden" name="UserId" value="4"/>
-     <div>
+    </div>
+    <div>
+        <label>Add Your User Id</label>
+        <input type="text" name="UserId"/>
+    </div>
+    <div>
         <label>Review:</label>
         <input type="text" name="ReviewsDes" />
-     </div>
-      <div>
-         <input type="submit" value="Add Review" />
-      </div>
+    </div>
+    <div>
+        <input type="submit" value="Add Review" class="button-submit"/>
+    </div>
 </form>

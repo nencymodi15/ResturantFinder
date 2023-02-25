@@ -50,19 +50,12 @@ namespace ResturantFinder.Controllers
         // GET: Reviews/New/
         public ActionResult New()
         {
-            userforReviews viewmodel = new userforReviews();
             string Url = "RestaurantsData/ListRestaurants";
             HttpResponseMessage response = Client.GetAsync(Url).Result;
 
-            IEnumerable<RestaurantDto> restaurantsoptions = response.Content.ReadAsAsync<IEnumerable<RestaurantDto>>().Result;
+            IEnumerable<RestaurantDto> restaurants = response.Content.ReadAsAsync<IEnumerable<RestaurantDto>>().Result;
 
-            viewmodel.resturantOptions = restaurantsoptions;
-             Url = "UserTablesData/FindUserTable";
-             response = Client.GetAsync(Url).Result;
-             UserTableDto SelectedUser = response.Content.ReadAsAsync<UserTableDto>().Result;
-            viewmodel.userinfo = SelectedUser;
-
-            return View(viewmodel);
+            return View(restaurants);
         }
 
         // POST: Reviews/Add

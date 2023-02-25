@@ -4,20 +4,25 @@
 }
 
 <h2>Details</h2>
-<a href="/UserTables/list">Go Back</a>
-
-<h3>@Model.selectedUser.UserName</h3>
-
+<link rel="stylesheet" href="~/Content/styles.css">
+<a href="/UserTables/Userlist" class="button">Go Back</a>
+<div>
+    <h3>@Model.selectedUser.UserName</h3>
+    <p><span>UserId: </span>@Model.selectedUser.UserId</p>
+    <p><span>Email: </span>@Model.selectedUser.EmailId</p>
+    <p><span>Nationality: </span>@Model.selectedUser.Nationality</p>
+    <a href="/UserTables/DeleteConfirm//@Model.selectedUser.UserId" class="button">Delete</a>
+    <a href="/UserTables/Edit//@Model.selectedUser.UserId" class="button">Edit</a>
+    <a href="/Reviews/New" class="button">Add review</a>
+</div>
+<h2>Your Reviews</h2>
 @foreach (var reviews in Model.Releatedreviews)
 {
-    <div>
-        <h2>@reviews.ResturantName</h2>
+    <div class="Review-Div">
+        <h2><a href="/Reviews/Details/@reviews.ReviewId">@reviews.ResturantName</a></h2>
         <h4>@reviews.ReviewsDes</h4>
     </div>
 }
 
-<a href="/UserTables/DeleteConfirm//@Model.selectedUser.UserId">Delete</a>
-<a href="/UserTables/Edit//@Model.selectedUser.UserId">Edit</a>
 
-<a href="/Reviews/New">Add review</a>
 

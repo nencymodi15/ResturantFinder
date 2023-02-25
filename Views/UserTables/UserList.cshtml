@@ -4,11 +4,14 @@
 }
 
 <h2>UserList</h2>
+<link rel="stylesheet" href="~/Content/styles.css">
 
 <a href="/UserTables/New">New user register</a>
 @foreach (var user in Model)
 {
-    <a href="/UserTables/Details/@user.UserId"><h2>@user.UserName</h2></a>
+    <div class="Resturant-list">
+        <a href="/UserTables/Details/@user.UserId"><h2>@user.UserName</h2></a>
+    </div>
 }
 
 

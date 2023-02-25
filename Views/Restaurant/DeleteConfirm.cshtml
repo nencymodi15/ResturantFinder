@@ -5,7 +5,15 @@
 
 <h2>Delete</h2>
 
-<h3>@Model.Name</h3>
+<link rel="stylesheet" href="~/Content/styles.css">
+<h2>ShowResturant</h2>
+<a href="/Restaurant/ShowResturant/@Model.Id">Go Back</a>
+<div class="show-restaurants">
+    <h3>@Model.Name</h3>
+    <p><span>Food Available: </span> @Model.FoodNationality</p>
+    <p><span>Restaurant's Email Id: </span> @Model.EmailId</p>
+    <p><span>Restaurant's Location: </span> @Model.Adress</p>
+</div>
 
 <form action="/Restaurant/Delete/@Model.Id" method="post">
     <input type="submit" value="Confirm Delete" />

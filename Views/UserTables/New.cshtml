@@ -2,8 +2,10 @@
 @{
     ViewBag.Title = "New";
 }
+<link rel="stylesheet" href="~/Content/styles.css">
+<a href="/UserTables/UserList" class="button">Go back</a>
 <h2>Register User</h2>
-<form action="/UserTables/Add" method="post">
+<form action="/UserTables/Add" method="post" class="add-form">
     <div>
         <label>User Name:</label>
         <input type="text" name="UserName" />
@@ -21,10 +23,13 @@
         <input type="text" name="Type" />
     </div>
     <div>
-        <label>Gender:</label>
-        <input type="text" name="Gender" />
+        <p>Gender:</p>
+        <input type="radio" id="gender" name="Gender" value="Male">
+        <label for="Male">Male</label><br>
+        <input type="radio" id="css" name="Gender" value="Female">
+        <label for="Female">Female</label><br>
     </div>
     <div>
-        <input type="submit" value="Add User" />
+        <input type="submit" value="Add User" class="button-submit"/>
     </div>
 </form>

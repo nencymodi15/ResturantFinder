@@ -27,7 +27,6 @@ namespace ResturantFinder.Controllers
         // GET: Restaurant/list
         public ActionResult List()
         {
-
             string Url = "RestaurantsData/ListRestaurants";
             HttpResponseMessage response = Client.GetAsync(Url).Result;
 

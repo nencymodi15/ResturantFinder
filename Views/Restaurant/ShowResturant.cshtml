@@ -4,19 +4,27 @@
 }
 
 
+<link rel="stylesheet" href="~/Content/styles.css">
 <h2>ShowResturant</h2>
 <a href="/Restaurant/list">Go Back</a>
-
-<h3>@Model.selectedRestaurant.Name</h3>
-<div>
-    @foreach(var reviews in Model.Releatedreviews)
-            {
-                <div>
-                    <h3>@reviews.ReviewsDes</h3>
-                    <p>@reviews.RatingFood</p>
-                </div>
-            }
+<div class="show-restaurants">
+    <h3>@Model.selectedRestaurant.Name</h3>
+    <p><span>Food Available: </span> @Model.selectedRestaurant.FoodNationality</p>
+    <p><span>Restaurant's Email Id: </span> @Model.selectedRestaurant.EmailId</p>
+    <p><span>Restaurant's Location: </span> @Model.selectedRestaurant.Adress</p>
 </div>
-<a href="/Restaurant/DeleteConfirm//@Model.selectedRestaurant.Id">Delete</a>
-<a href="/Restaurant/Edit//@Model.selectedRestaurant.Id">Edit</a>
-<a href="/Reviews/Details/">Add review</a>
+<div>
+    <h3 class="Review-Div-section">Reviews Section</h3>
+    @foreach (var reviews in Model.Releatedreviews)
+    {
+        <div class="Review-Div">
+            <h4>@reviews.ReviewsDes</h4>
+            <p><span>Asthetic Ratig:</span>@reviews.RatingAsthetics</p>
+            <p><span>vibe Ratig:</span>@reviews.RatingFeeling</p>
+            <p><span>Overall Food Rating:</span> @reviews.RatingFood</p>
+        </div>
+    }
+</div>
+<a href="/Restaurant/DeleteConfirm//@Model.selectedRestaurant.Id" class="button">Delete</a>
+<a href="/Restaurant/Edit//@Model.selectedRestaurant.Id" class="button">Edit</a>
+<a href="/Reviews/new/" class="button">Add review</a>

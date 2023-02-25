@@ -4,8 +4,9 @@
 }
 
 <h2>Edit</h2>
-
-<form action="/Restaurant/Update/@Model.Id" method="post">
+<link rel="stylesheet" href="~/Content/styles.css">
+<a href="/Restaurant/ShowResturant/@Model.Id">Go Back</a>
+<form action="/Restaurant/Update/@Model.Id" method="post" class="add-form">
     <div>
         <label>Resturant Name:</label>
         <input type="text" name="Name" value="@Model.Name" />
@@ -23,7 +24,7 @@
         <input type="text" name="Adress" value="@Model.Adress"/>
     </div>
     <div>
-        <input type="submit" value="EditResturant" />
+        <input type="submit" value="EditResturant" class="button-submit"/>
     </div>
 </form>
 

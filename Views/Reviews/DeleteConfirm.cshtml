@@ -8,7 +8,7 @@
 
 <h3>@Model.ResturantName</h3>
 
-
+<a href="/Reviews/Details/@Model.ReviewId" class="button">go back</a>
 <form action="/Reviews/Delete/@Model.ReviewId" method="post">
     <input type="hidden" name="UserId" value="@Model.ReviewId" />
     <input type="submit" value="Delete Review" />

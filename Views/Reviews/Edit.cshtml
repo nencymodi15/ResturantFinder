@@ -6,7 +6,10 @@
 <h2>Edit</h2>
 
 <h2>Add Review</h2>
-<form action="/Reviews/Update//@Model.Selectedreview.ReviewId" method="POST">
+
+<link rel="stylesheet" href="~/Content/styles.css">
+<a href="/Reviews/Details/@Model.Selectedreview.ReviewId"><h2>go Back</h2></a>
+<form action="/Reviews/Update//@Model.Selectedreview.ReviewId" method="POST" class="add-form">
     <input type="hidden" name="ReviewId" value="@Model.Selectedreview.ReviewId" />
     <div>
         <label>Resturant Name:</label>
@@ -46,6 +49,6 @@
         <input type="text" name="ReviewsDes" value="@Model.Selectedreview.ReviewsDes" />
     </div>
     <div>
-        <input type="submit" value="Edit Review" />
+        <input type="submit" value="Edit Review" class="button-submit"/>
     </div>
 </form>

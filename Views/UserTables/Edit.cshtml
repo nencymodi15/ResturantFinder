@@ -4,8 +4,9 @@
 }
 
 <h2>Edit</h2>
-
-<form action="/UserTables/Update/@Model.UserId" method="post">
+<link rel="stylesheet" href="~/Content/styles.css">
+<a href="/UserTables/Details/@Model.UserId" class="button">Go back</a>
+<form action="/UserTables/Update/@Model.UserId" method="post" class="add-form">
     <div>
         <input type="hidden" name="UserId" value="@Model.UserId" />
         <label>User Name:</label>
@@ -28,6 +29,6 @@
         <input type="text" name="Gender" value="@Model.Gender"/>
     </div>
     <div>
-        <input type="submit" value="UpdateYourDetails" />
+        <input type="submit" value="UpdateYourDetails" class="button-submit"/>
     </div>
 </form>

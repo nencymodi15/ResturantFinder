@@ -4,11 +4,13 @@
 }
 
 <h2>ReviewList</h2>
-
-<a href="/Reviews/New">Add A review</a>
+<link rel="stylesheet" href="~/Content/styles.css">
+<a href="/Reviews/New" class="button">Add A review</a>
 @foreach (var review in Model)
 {
-    <a href="/Reviews/Details/@review.ReviewId"><h2>@review.ResturantName</h2></a>
+    <div class="Resturant-list">
+        <a href="/Reviews/Details/@review.ReviewId"><h2>@review.ResturantName</h2></a>
+    </div>
 }
 
 

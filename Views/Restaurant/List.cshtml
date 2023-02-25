@@ -2,10 +2,13 @@
 @{
     ViewBag.Title = "List";
 }
-
+<link rel="stylesheet" href="~/Content/styles.css">
 <h2>List</h2>
-<a href="/Restaurant/New">Add Resturant</a>
+<a href="/Restaurant/New" class="button">Add Resturant</a>
 @foreach(var resturant in Model)
             {
-                <a href="/Restaurant/ShowResturant/@resturant.Id"><h2>@resturant.Name</h2></a>
+                <div class="Resturant-list">
+                    <a href="/Restaurant/ShowResturant/@resturant.Id"><h2>@resturant.Name</h2></a>
+                    <p><span>Type Of Food Available:</span>@resturant.FoodNationality</p>
+                </div>
               }

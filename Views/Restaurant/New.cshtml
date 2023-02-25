@@ -4,8 +4,9 @@
 }
 
 <h2>Create</h2>
-
-<form action="/Restaurant/Create" method="post">
+<link rel="stylesheet" href="~/Content/styles.css">
+<a href="/Restaurant/List" class="button">Go back</a>
+<form action="/Restaurant/Create" method="post" class="add-form">
     <div>
         <label>Resturant Name:</label>
         <input type="text" name="Name" />
@@ -23,7 +24,7 @@
         <input type="text" name="Adress" />
     </div>
     <div>
-        <input type="submit" value="AddResturant" />
+        <input type="submit" value="AddResturant" class="button-submit"/>
     </div>
 </form>
 

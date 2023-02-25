@@ -1,0 +1,71 @@
+﻿.main-Text {
+    margin-top:20px;
+    padding:300px;
+    color:white;
+    text-align:center;
+    background-image: url("../LocalImages/mainbackimage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.button {
+    margin: 20px;
+    width: 115px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+    .main-Text h2 {
+        text-shadow: 2px 2px 8px #FF0000;
+    }
+.Resturant-list{
+    border-bottom:0.5px solid black;
+}
+    .Resturant-list a {
+        color:lightcoral;
+    }
+.Resturant-list span{
+    font-weight:bolder;
+}
+.add-form label {
+    color: lightcoral;
+}
+.add-form label input{
+    color: lightcoral;
+    border-radius: 50px 50px;
+}
+.button-submit {
+    background: #4E9CAF;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+.show-restaurants h2{
+    color:lightcoral;
+}
+.show-restaurants p {
+    color: lightcoral;
+}
+.show-restaurants span {
+    font-weight:bold;
+}
+.Review-Div-section{
+    border-bottom:0.2px solid lightcoral;
+}
+.Review-Div{
+    color: darkcyan;
+}
+.Review-Div h4{
+    color: darkcyan;
+}
+.Review-Div span {
+    color: darkcyan;
+}
+.Review-Div span {
+    font-weight: bold;
+}

@@ -4,9 +4,16 @@
 }
 
 <h2>Details</h2>
-<a href="/Reviews/ReviewsLis">Go Back</a>
-
-<h3>@Model.ResturantName</h3>
-<a href="/Reviews/DeleteConfirm/@Model.ReviewId">Delete</a>
-<a href="/Reviews/Edit/@Model.ReviewId">Edit</a>
+<a href="/Reviews/ReviewsList">Go Back</a>
+<a href="/UserTables/Details/@Model.UserId">Go back to UserPage</a>
+<link rel="stylesheet" href="~/Content/styles.css">
+<div class="Review-Div">
+    <h3>@Model.ResturantName</h3>
+    <h4>@Model.ReviewsDes</h4>
+    <p><span>Asthetic Ratig:</span>@Model.RatingAsthetics</p>
+    <p><span>vibe Ratig:</span>@Model.RatingFeeling</p>
+    <p><span>Overall Food Rating:</span> @Model.RatingFood</p>//
+</div>
+<a href="/Reviews/DeleteConfirm/@Model.ReviewId" class="button">Delete</a>
+<a href="/Reviews/Edit/@Model.ReviewId" class="button">Edit</a>
 
