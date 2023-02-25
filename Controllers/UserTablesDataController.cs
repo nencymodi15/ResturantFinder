@@ -35,7 +35,6 @@ namespace ResturantFinder.Controllers
             }));
             return userTableDto;
         }
-
         // GET: api/UserTablesData/FindUserTable/5
         [ResponseType(typeof(UserTable))]
         [HttpGet]
@@ -52,13 +51,33 @@ namespace ResturantFinder.Controllers
                 Gender = UserTable.Gender
 
             };
-            UserTable userTable = db.Users.Find(id);
-            if (userTable == null)
+            if (UserTable == null)
             {
                 return NotFound();
             }
 
             return Ok(UserTableDto);
+        }
+        [HttpGet]
+        [ResponseType(typeof(ReviewDto))]
+        public IHttpActionResult FindReviews(int id)
+        {
+            List<Review> Review = db.Reviews.Where(a => a.UserId == id).ToList();
+            List<ReviewDto> ReviewDtos = new List<ReviewDto>();
+
+            Review.ForEach(a => ReviewDtos.Add(new ReviewDto()
+            {
+                ReviewId = a.ReviewId,
+                ResturantName = a.ResturantName,
+                RatingFood = a.RatingFood,
+                RatingAsthetics = a.RatingAsthetics,
+                RatingFeeling = a.RatingFeeling,
+                ReviewsDes = a.ReviewsDes,
+                UserId = a.UserTable.UserId,
+                Id = a.Restaurant.Id
+            }));
+
+            return Ok(ReviewDtos);
         }
 
         // POST: api/UserTablesData/UpdateUserTable/5

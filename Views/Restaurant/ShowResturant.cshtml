@@ -1,4 +1,4 @@
-﻿@model ResturantFinder.Models.RestaurantDto
+﻿@model ResturantFinder.Models.ViewModels.allReviewsofresturant
 @{
     ViewBag.Title = "ShowResturant";
 }
@@ -7,6 +7,16 @@
 <h2>ShowResturant</h2>
 <a href="/Restaurant/list">Go Back</a>
 
-<h3>@Model.Name</h3>
-<a href="/Restaurant/DeleteConfirm//@Model.Id">Delete</a>
-<a href="/Restaurant/Edit//@Model.Id">Edit</a>
+<h3>@Model.selectedRestaurant.Name</h3>
+<div>
+    @foreach(var reviews in Model.Releatedreviews)
+            {
+                <div>
+                    <h3>@reviews.ReviewsDes</h3>
+                    <p>@reviews.RatingFood</p>
+                </div>
+            }
+</div>
+<a href="/Restaurant/DeleteConfirm//@Model.selectedRestaurant.Id">Delete</a>
+<a href="/Restaurant/Edit//@Model.selectedRestaurant.Id">Edit</a>
+<a href="/Reviews/Details/">Add review</a>

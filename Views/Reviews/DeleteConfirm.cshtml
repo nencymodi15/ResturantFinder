@@ -1,4 +1,4 @@
-﻿
+﻿@model ResturantFinder.Models.ReviewDto
 @{
     ViewBag.Title = "DeleteConfirm";
 }
@@ -6,10 +6,10 @@
 <h2>DeleteConfirm</h2>
 
 
-<h3>@Model.UserName</h3>
+<h3>@Model.ResturantName</h3>
 
 
-<form action="/UserTables/Update/@Model.UserId" method="post">
-    <input type="hidden" name="UserId" value="@Model.UserId" />
-    <input type="submit" value="Delete User" />
+<form action="/Reviews/Delete/@Model.ReviewId" method="post">
+    <input type="hidden" name="UserId" value="@Model.ReviewId" />
+    <input type="submit" value="Delete Review" />
 </form>

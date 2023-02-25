@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Diagnostics;
 using ResturantFinder.Models;
 using System.Web.Script.Serialization;
+using ResturantFinder.Models.ViewModels;
 
 namespace ResturantFinder.Controllers
 {
@@ -20,14 +21,14 @@ namespace ResturantFinder.Controllers
         static RestaurantController()
         {
             Client = new HttpClient();
-            Client.BaseAddress = new Uri("https://localhost:44338/api/RestaurantsData/");
+            Client.BaseAddress = new Uri("https://localhost:44338/api/");
         }
 
         // GET: Restaurant/list
         public ActionResult List()
         {
 
-            string Url = "ListRestaurants";
+            string Url = "RestaurantsData/ListRestaurants";
             HttpResponseMessage response = Client.GetAsync(Url).Result;
 
             IEnumerable<RestaurantDto> restaurants = response.Content.ReadAsAsync<IEnumerable<RestaurantDto>>().Result;
@@ -38,12 +39,19 @@ namespace ResturantFinder.Controllers
         // GET: Restaurant/ShowResturant/5
         public ActionResult ShowResturant(int id)
         {
-            string Url = "FindRestaurant/" + id;
+            allReviewsofresturant viewmodel = new allReviewsofresturant();
+            string Url = "RestaurantsData/FindRestaurant/" + id;
             HttpResponseMessage response = Client.GetAsync(Url).Result;
 
             RestaurantDto Selectedrestaurants = response.Content.ReadAsAsync<RestaurantDto>().Result;
 
-            return View(Selectedrestaurants);
+            viewmodel.selectedRestaurant = Selectedrestaurants;
+            Url = "RestaurantsData/FindReviews/" + id;
+            response = Client.GetAsync(Url).Result;
+            IEnumerable<ReviewDto> reviews = response.Content.ReadAsAsync<IEnumerable<ReviewDto>>().Result;
+            
+            viewmodel.Releatedreviews = reviews;
+            return View(viewmodel);
         }
 
         public ActionResult Error()
@@ -61,8 +69,9 @@ namespace ResturantFinder.Controllers
         [HttpPost]
         public ActionResult Create(Restaurant restaurant)
         {
+
             //curl -H "Contet-Type:application/json" -d @Resturant.json https://localhost:44338/api/RestaurantsData/AddRestaurant
-            string Url = "AddRestaurant";
+            string Url = "RestaurantsData/AddRestaurant";
             string jsonpayload = jss.Serialize(restaurant);
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
@@ -83,7 +92,7 @@ namespace ResturantFinder.Controllers
         // GET: Restaurant/Edit/5
         public ActionResult Edit(int id)
         {
-            string Url = "FindRestaurant/" + id;
+            string Url = "RestaurantsData/FindRestaurant/" + id;
             HttpResponseMessage response = Client.GetAsync(Url).Result;
 
             RestaurantDto Selectedrestaurants = response.Content.ReadAsAsync<RestaurantDto>().Result;
@@ -95,7 +104,7 @@ namespace ResturantFinder.Controllers
         [HttpPost]
         public ActionResult Update(int id, Restaurant restaurant)
         {
-            string Url = "UpdateRestaurant/" + id;
+            string Url = "RestaurantsData/UpdateRestaurant/" + id;
             string jsonpayload = jss.Serialize(restaurant);
             Debug.WriteLine("This is the ");
             Debug.WriteLine(jsonpayload);
@@ -116,7 +125,7 @@ namespace ResturantFinder.Controllers
         // GET: Restaurant/Delete/5
         public ActionResult DeleteConfirm(int id)
         {
-            string Url = "FindRestaurant/" + id;
+            string Url = "RestaurantsData/FindRestaurant/" + id;
             HttpResponseMessage response = Client.GetAsync(Url).Result;
 
             RestaurantDto Selectedrestaurants = response.Content.ReadAsAsync<RestaurantDto>().Result;
@@ -128,7 +137,7 @@ namespace ResturantFinder.Controllers
         [HttpPost]
         public ActionResult Delete(int id, Restaurant restaurant)
         {
-            string Url = "DeleteRestaurant/" + id;
+            string Url = "RestaurantsData/DeleteRestaurant/" + id;
             string jsonpayload = jss.Serialize(restaurant);
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";

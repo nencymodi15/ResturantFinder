@@ -1,4 +1,4 @@
-﻿@model ResturantFinder.Models.UserTableDto
+﻿@model ResturantFinder.Models.ViewModels.UsersReview
 @{
     ViewBag.Title = "Details";
 }
@@ -6,7 +6,18 @@
 <h2>Details</h2>
 <a href="/UserTables/list">Go Back</a>
 
-<h3>@Model.UserName</h3>
-<a href="/UserTables/DeleteConfirm//@Model.UserId">Delete</a>
-<a href="/UserTables/Edit//@Model.UserId">Edit</a>
+<h3>@Model.selectedUser.UserName</h3>
+
+@foreach (var reviews in Model.Releatedreviews)
+{
+    <div>
+        <h2>@reviews.ResturantName</h2>
+        <h4>@reviews.ReviewsDes</h4>
+    </div>
+}
+
+<a href="/UserTables/DeleteConfirm//@Model.selectedUser.UserId">Delete</a>
+<a href="/UserTables/Edit//@Model.selectedUser.UserId">Edit</a>
+
+<a href="/Reviews/New">Add review</a>
 

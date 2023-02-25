@@ -36,7 +36,6 @@ namespace ResturantFinder.Controllers
             }));
             return ReviewDtos;
         }
-
         // GET: api/ReviewsData/FindReview/5
         [ResponseType(typeof(Review))]
         [HttpGet]
@@ -54,13 +53,12 @@ namespace ResturantFinder.Controllers
                 UserId = Review.UserId,
                 Id = Review.Id,
             };
-            Review review = db.Reviews.Find(id);
-            if (review == null)
+            if (Review == null)
             {
                 return NotFound();
             }
 
-            return Ok(review);
+            return Ok(ReviewDto);
         }
 
         // PUT: api/ReviewsData/UpdateReview/5

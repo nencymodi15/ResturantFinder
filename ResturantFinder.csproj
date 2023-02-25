@@ -229,6 +229,10 @@
     <Compile Include="Migrations\202302122323460_updatingrows.designer.cs">
       <DependentUpon>202302122323460_updatingrows.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302241849212_revieschange.cs" />
+    <Compile Include="Migrations\202302241849212_revieschange.designer.cs">
+      <DependentUpon>202302241849212_revieschange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -236,6 +240,10 @@
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\UserTable.cs" />
+    <Compile Include="Models\ViewModels\allReviewsofresturant.cs" />
+    <Compile Include="Models\ViewModels\UpdateReview.cs" />
+    <Compile Include="Models\ViewModels\userforReviews.cs" />
+    <Compile Include="Models\ViewModels\UsersReview.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -264,6 +272,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -315,7 +324,8 @@
     <Content Include="Views\Reviews\Edit.cshtml" />
     <Content Include="Views\Reviews\Error.cshtml" />
     <Content Include="Views\Reviews\New.cshtml" />
-    <Content Include="Views\Reviews\UserList.cshtml" />
+    <Content Include="Views\Reviews\ReviewsList.cshtml" />
+    <Content Include="Views\UserTables\loginUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -360,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302122323460_updatingrows.resx">
       <DependentUpon>202302122323460_updatingrows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302241849212_revieschange.resx">
+      <DependentUpon>202302241849212_revieschange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

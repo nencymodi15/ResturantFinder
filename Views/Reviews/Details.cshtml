@@ -1,12 +1,12 @@
-﻿@model ResturantFinder.Models.UserTableDto
+﻿@model ResturantFinder.Models.ReviewDto
 @{
     ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
-<a href="/UserTables/list">Go Back</a>
+<a href="/Reviews/ReviewsLis">Go Back</a>
 
-<h3>@Model.UserName</h3>
-<a href="/UserTables/DeleteConfirm//@Model.UserId">Delete</a>
-<a href="/UserTables/Edit//@Model.UserId">Edit</a>
+<h3>@Model.ResturantName</h3>
+<a href="/Reviews/DeleteConfirm/@Model.ReviewId">Delete</a>
+<a href="/Reviews/Edit/@Model.ReviewId">Edit</a>
 

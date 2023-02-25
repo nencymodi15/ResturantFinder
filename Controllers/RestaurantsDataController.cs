@@ -35,6 +35,28 @@ namespace ResturantFinder.Controllers
             }));
             return restaurantDtos;
         }
+        // GET: api/RestaurantsData/FindReviews/2
+        [HttpGet]
+        [ResponseType(typeof(ReviewDto))]
+        public IHttpActionResult FindReviews(int id)
+        {
+            List<Review> Review = db.Reviews.Where(a => a.Id == id).ToList();
+            List<ReviewDto> ReviewDtos = new List<ReviewDto>();
+
+            Review.ForEach(a => ReviewDtos.Add(new ReviewDto()
+            {
+                ReviewId = a.ReviewId,
+                ResturantName = a.ResturantName,
+                RatingFood = a.RatingFood,
+                RatingAsthetics = a.RatingAsthetics,
+                RatingFeeling = a.RatingFeeling,
+                ReviewsDes = a.ReviewsDes,
+                UserId = a.UserTable.UserId,
+                Id = a.Restaurant.Id
+            }));
+
+            return Ok(ReviewDtos);
+        }
 
         // GET: api/RestaurantsData/FindRestaurant/5
 
@@ -59,7 +81,7 @@ namespace ResturantFinder.Controllers
 
                 return Ok(RestaurantDto);
         }
-
+         
         // POST: api/RestaurantsData/UpdateRestaurant/5
         [ResponseType(typeof(void))]
         [HttpPost]

@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using ResturantFinder.Controllers;
+using ResturantFinder.Models.ViewModels;
 
 namespace ResturantFinder.Controllers
 {
@@ -21,12 +22,21 @@ namespace ResturantFinder.Controllers
         static UserTablesController()
         {
             Client = new HttpClient();
-            Client.BaseAddress = new Uri("https://localhost:44338/api/UserTablesData/");
+            Client.BaseAddress = new Uri("https://localhost:44338/api/");
         }
         // GET: UserTables/UserList
         public ActionResult UserList()
         {
-            string Url = "ListUsers";
+            string Url = "UserTablesData/ListUsers";
+
+            HttpResponseMessage response = Client.GetAsync(Url).Result;
+            IEnumerable<UserTableDto> userTables = response.Content.ReadAsAsync<IEnumerable<UserTableDto>>().Result;
+            return View(userTables);
+        }
+
+        public ActionResult loginUser()
+        {
+            string Url = "UserTablesData/ListUsers";
 
             HttpResponseMessage response = Client.GetAsync(Url).Result;
             IEnumerable<UserTableDto> userTables = response.Content.ReadAsAsync<IEnumerable<UserTableDto>>().Result;
@@ -36,12 +46,20 @@ namespace ResturantFinder.Controllers
         // GET: UserTables/Details/5
         public ActionResult Details(int id)
         {
-            string Url = "FindUserTable/" + id;
+            UsersReview viewmodel = new UsersReview();
+            string Url = "UserTablesData/FindUserTable/" + id;
             HttpResponseMessage response = Client.GetAsync(Url).Result;
 
             UserTableDto SelectedUser = response.Content.ReadAsAsync<UserTableDto>().Result;
+            viewmodel.selectedUser = SelectedUser;
 
-            return View(SelectedUser);
+            Url = "UserTablesData/FindReviews/" + id;
+            response = Client.GetAsync(Url).Result;
+
+            IEnumerable<ReviewDto> SelectedReviews = response.Content.ReadAsAsync<IEnumerable<ReviewDto>>().Result;
+            viewmodel.Releatedreviews = SelectedReviews;
+
+            return View(viewmodel);
         }
         public ActionResult Error()
         {
@@ -58,7 +76,7 @@ namespace ResturantFinder.Controllers
         [HttpPost]
         public ActionResult Add(UserTable userTable)
         {
-            string Url = "AddUserTable";
+            string Url = "UserTablesData/AddUserTable";
             string jsonpayload = jss.Serialize(userTable);
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
@@ -78,7 +96,7 @@ namespace ResturantFinder.Controllers
         // GET: UserTables/Edit/5
         public ActionResult Edit(int id)
         {
-            string Url = "FindUserTable/" + id;
+            string Url = "UserTablesData/FindUserTable/" + id;
             HttpResponseMessage response = Client.GetAsync(Url).Result;
 
             UserTableDto SelectedUser = response.Content.ReadAsAsync<UserTableDto>().Result;
@@ -90,7 +108,7 @@ namespace ResturantFinder.Controllers
         [HttpPost]
         public ActionResult Update(int id, UserTable userTable)
         {
-            string Url = "UpdateUserTable/" + id;
+            string Url = "UserTablesData/UpdateUserTable/" + id;
             string jsonpayload = jss.Serialize(userTable);
             Debug.WriteLine("This is the ");
             Debug.WriteLine(jsonpayload);
@@ -111,7 +129,7 @@ namespace ResturantFinder.Controllers
         // GET: UserTables/Delete/5
         public ActionResult DeleteConfirm(int id)
         {
-            string Url = "FindUserTable/" + id;
+            string Url = "UserTablesData/FindUserTable/" + id;
             HttpResponseMessage response = Client.GetAsync(Url).Result;
 
             UserTableDto SelectedUser = response.Content.ReadAsAsync<UserTableDto>().Result;
@@ -123,7 +141,7 @@ namespace ResturantFinder.Controllers
         [HttpPost]
         public ActionResult Delete(int id, UserTable userTable)
         {
-            string Url = "DeleteUserTable/" + id;
+            string Url = "UserTablesData/DeleteUserTable/" + id;
             string jsonpayload = jss.Serialize(userTable);
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";

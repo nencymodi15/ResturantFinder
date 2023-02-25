@@ -1,10 +1,10 @@
 {
-  "UserId": 1,
-  "UserName": "Mirch123",
-  "EmailId": 5,
-  "Nationality": 6,
+  "ReviewId": 1,
+  "ResturantName": "Mirch123",
+  "RatingFood": 5,
+  "RatingAsthetics": 6,
   "RatingFeeling": 7,
   "ReviewsDes": "Good Mouth Feel",
-  "UserId": 1,
-  "Id": 1006
+  "UserId": 4,
+  "Id": 1007
 }

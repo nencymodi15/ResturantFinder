@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ResturantFinder.Models.UserTableDto>
+@{
+    ViewBag.Title = "loginUser";
+}
+
+<h2>loginUser</h2>
+<script src="~/Scripts/script.js"></script>
+<form action="/UserTables/Details/@Model" method="post">
+    <label>Enter User Name:</label>
+    <input type="text" name="UserId" id="username" />
+</form>
+
+@foreach (var review in Model)
+{
+    <a href="/Reviews/Details/@review.ReviewId"><h2>@review.ResturantName</h2></a>
+} 
+

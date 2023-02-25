@@ -1,0 +1,16 @@
+﻿@model IEnumerable<ResturantFinder.Models.ReviewDto>
+@{
+    ViewBag.Title = "ReviewsList";
+}
+
+<h2>ReviewList</h2>
+
+<a href="/Reviews/New">Add A review</a>
+@foreach (var review in Model)
+{
+    <a href="/Reviews/Details/@review.ReviewId"><h2>@review.ResturantName</h2></a>
+}
+
+
+
+

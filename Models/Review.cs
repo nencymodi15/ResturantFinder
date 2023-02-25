@@ -37,7 +37,6 @@ namespace ResturantFinder.Models
     }
     public class ReviewDto
     {
-        [Key]
         public int ReviewId { get; set; }
         public string ResturantName { get; set; }
 
